@@ -30,8 +30,25 @@ public class LocatorsIntro {
         passwordTextBox.sendKeys("Test1234!");
         Thread.sleep(3000);
         //Click on sign in button
-        signinButton.click();
 
+
+        //then verify that the expected user id  testtechproed@gmail.com
+
+        String expectedUserIDText="testtechproed@gmail.com";
+        WebElement actualUserID=driver.findElement(By.className("navbar-text"));
+       // System.out.println(actualUserID); // This gives me the webelement reference
+        //System.out.println(actualUserID.getText());
+       String actualUserIDText=actualUserID.getText();//testtechproed@gmail.com
+
+
+        if (actualUserID.equals(expectedUserIDText)){
+            System.out.println("PASS");
+
+        }else{
+            System.out.println("FAIL");
+            System.out.println("ACTUAL ID : "+actualUserIDText);
+            System.out.println("EXPECTED ID : "+expectedUserIDText);
+        }
 
     }
 }
